@@ -8,7 +8,7 @@ A frontend-biased fullstack portfolio project inspired by Fluxion-style workflow
 
 ## Screenshot
 
-![Scenario Planner UI](./CAPTURE.png)
+![Scenario Planner UI](./Capture.PNG)
 
 ---
 
@@ -33,11 +33,10 @@ A frontend-biased fullstack portfolio project inspired by Fluxion-style workflow
 ---
 
 ## Tech Stack
-
-- **React + TypeScript** (Vite)
-- **Zustand** for lightweight state management
-- **TanStack Table** for table rendering and filtering
-- **React Flow (@xyflow/react)** for graph UI
+- React + TypeScript (Vite)
+- Zustand (state management)
+- TanStack Table (grid/table rendering + filtering)
+- React Flow (@xyflow/react) (graph UI)
 
 ---
 
