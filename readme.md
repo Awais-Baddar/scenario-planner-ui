@@ -1,36 +1,73 @@
-# Scenario Planner UI (Grid + Graph)
+# React + TypeScript + Vite
 
-A frontend-biased fullstack portfolio project: a data-heavy UI where users model scenarios using an editable **grid/table** and a connected **graph view**, with optional **AI-assisted workflows** to propose scenario changes.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Why this project
-Fluxion-style product problem: turn complex models into an intuitive, responsive experience.
+Currently, two official plugins are available:
 
-## Features (current + planned)
-### Grid / Table
-- [ ] Editable rows/cells (parameters)
-- [ ] Filter / sort / search
-- [ ] Validation + error states
-- [ ] Scenario versioning (Baseline vs Scenario A)
-- [ ] Diff view (what changed)
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-### Graph
-- [ ] Nodes/edges view of model relationships
-- [ ] Click node ↔ highlight table row
-- [ ] Zoom/pan + selection
+## React Compiler
 
-### AI-assisted workflows
-- [ ] "Generate scenario" (text → structured changes)
-- [ ] Review/approve before apply
-- [ ] Explain changes (why these parameters changed)
+The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
 
-## Tech stack
-- React + TypeScript
-- State: (Zustand / Redux Toolkit)
-- Table: (TanStack Table + virtualization)
-- Graph: (React Flow / Cytoscape / D3)
-- API: (mock JSON server / Node/Express)
+## Expanding the ESLint configuration
 
-## Getting started
-```bash
-npm install
-npm run dev
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
+
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
