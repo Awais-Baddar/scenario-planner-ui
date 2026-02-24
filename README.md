@@ -76,3 +76,17 @@ A centralized state model ensures:
 ```bash
 git clone http://github.com/Awais-Baddar/scenario-planner-ui
 cd scenario-planner-ui
+```
+### 2. Install dependencies
+```bash
+npm install
+```
+
+### 3. Start the development server
+
+```bash
+ npm run dev
+```
+- will be running at localhost http://localhost:5173
+
+
