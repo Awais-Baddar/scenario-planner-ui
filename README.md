@@ -10,34 +10,74 @@ A frontend-biased fullstack portfolio project inspired by Fluxion-style workflow
 
 ![Scenario Planner UI](./Capture.PNG)
 
----
+Scenario Planner UI
+Overview
 
-## Features
+Scenario Planner UI is a data-intensive web application that allows users to model alternative scenarios by editing structured parameters in a tabular grid and visualizing dependencies in a linked graph view.
 
-### ✅ Grid / Table
-- Editable parameters (name, baseline, scenario)
-- Inline validation + clear UX states
-- Search/filter parameters
-- Row selection synced with graph interactions
+The goal of the project is to explore how complex, interdependent data can be edited and reviewed safely while maintaining consistency across different visual representations.
 
-### ✅ Scenario workflow
-- Baseline vs Scenario A values
-- Diff view to review what changed (Baseline → Scenario A)
-- Reset Scenario A to baseline
+What the Project Does
 
-### ✅ Graph
-- Nodes/edges representation of the model
-- Click node ↔ highlights the corresponding table row
-- Zoom/pan + controls (via React Flow)
+Provides an editable grid interface for structured parameter input
 
----
+Visualizes relationships between entities using a connected graph view
 
-## Tech Stack
-- React + TypeScript (Vite)
-- Zustand (state management)
-- TanStack Table (grid/table rendering + filtering)
-- React Flow (@xyflow/react) (graph UI)
+Maintains synchronization between grid and graph representations
 
----
+Validates changes before applying them to prevent inconsistent state
 
-## Project Structure
+Supports baseline vs scenario comparison workflows
+
+The focus of the project is on data integrity, state management, and predictable UI behavior.
+
+Technologies Used
+
+React
+
+TypeScript
+
+REST-based backend validation (mocked/local API structure)
+
+Modular component architecture
+
+Structured state management patterns
+
+How to Run the Project
+
+Clone the repository
+git clone http://github.com/Awais-Baddar/scenario-planner-ui
+
+Navigate to the project directory
+cd scenario-planner-ui
+
+Install dependencies
+npm install
+
+Start the development server
+npm run dev
+
+Open the application in your browser (default: http://localhost:5173
+)
+
+My Contribution
+
+This is a personal project that I designed and implemented independently.
+
+My responsibilities included:
+
+Designing the overall architecture
+
+Defining data models and state structure
+
+Implementing the editable grid and validation logic
+
+Building synchronization logic between grid and graph
+
+Refactoring state flow to improve predictability and reduce side effects
+
+Reflection
+
+The main technical challenge was maintaining consistent state between multiple views of shared data. Through refactoring and restructuring data flow, I improved reliability and reduced hidden UI bugs.
+
+If revisited, I would add stronger automated tests around state transitions and further separate business logic from UI components.
