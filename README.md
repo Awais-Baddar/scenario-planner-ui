@@ -10,74 +10,69 @@ A frontend-biased fullstack portfolio project inspired by Fluxion-style workflow
 
 ![Scenario Planner UI](./Capture.PNG)
 
-Scenario Planner UI
-Overview
+# Scenario Planner UI
 
-Scenario Planner UI is a data-intensive web application that allows users to model alternative scenarios by editing structured parameters in a tabular grid and visualizing dependencies in a linked graph view.
+A data-intensive web application for modeling alternative scenarios using a structured grid interface and a linked graph visualization.
 
-The goal of the project is to explore how complex, interdependent data can be edited and reviewed safely while maintaining consistency across different visual representations.
+---
 
-What the Project Does
+## Overview
 
-Provides an editable grid interface for structured parameter input
+Scenario Planner UI allows users to:
 
-Visualizes relationships between entities using a connected graph view
+- Edit structured parameters in a tabular grid
+- Visualize dependencies and relationships in a graph view
+- Maintain synchronized state between multiple representations
+- Validate changes before applying them
+- Compare baseline and scenario states
 
-Maintains synchronization between grid and graph representations
+The main focus of the project is data integrity, predictable state management, and clean architecture.
 
-Validates changes before applying them to prevent inconsistent state
+---
 
-Supports baseline vs scenario comparison workflows
+## Motivation
 
-The focus of the project is on data integrity, state management, and predictable UI behavior.
+The goal of this project was to explore how complex, interdependent data can be edited safely while maintaining consistency across different UI representations.
 
-Technologies Used
+Instead of prioritizing feature count, I focused on:
 
-React
+- Clear data flow
+- Separation of concerns
+- Explicit validation layers
+- Reducing hidden side effects in state transitions
 
-TypeScript
+---
 
-REST-based backend validation (mocked/local API structure)
+## Tech Stack
 
-Modular component architecture
+- **Frontend:** React, TypeScript
+- **State Management:** Structured centralized state patterns
+- **Backend (mocked/local):** REST-based validation structure
+- **Architecture:** Modular component design
+- **Tooling:** Vite, npm, Git
 
-Structured state management patterns
+---
 
-How to Run the Project
+## Architecture Notes
 
-Clone the repository
+The application separates:
+
+- Presentation logic (UI components)
+- Business rules (validation and scenario comparison)
+- Data modeling (structured entities and relationships)
+
+A centralized state model ensures:
+
+- Grid and graph remain synchronized
+- Validation occurs before state mutation
+- Reduced risk of inconsistent UI updates
+
+---
+
+## Running the Project
+
+### 1. Clone the repository
+
+```bash
 git clone http://github.com/Awais-Baddar/scenario-planner-ui
-
-Navigate to the project directory
 cd scenario-planner-ui
-
-Install dependencies
-npm install
-
-Start the development server
-npm run dev
-
-Open the application in your browser (default: http://localhost:5173
-)
-
-My Contribution
-
-This is a personal project that I designed and implemented independently.
-
-My responsibilities included:
-
-Designing the overall architecture
-
-Defining data models and state structure
-
-Implementing the editable grid and validation logic
-
-Building synchronization logic between grid and graph
-
-Refactoring state flow to improve predictability and reduce side effects
-
-Reflection
-
-The main technical challenge was maintaining consistent state between multiple views of shared data. Through refactoring and restructuring data flow, I improved reliability and reduced hidden UI bugs.
-
-If revisited, I would add stronger automated tests around state transitions and further separate business logic from UI components.
